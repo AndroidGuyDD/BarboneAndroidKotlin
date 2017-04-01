@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="shadow-api-3.3.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.robolectric/shadow-api/3.3.1/4c942304efebda278d5d415425a4163d6876148e/shadow-api-3.3.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.robolectric/shadow-api/3.3.1/948b5a30830b7a09d4aec8337cb5183d0ce28621/shadow-api-3.3.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

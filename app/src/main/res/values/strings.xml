@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Barebone Android</string>
+
+    <string name="input_hint">Enter your message</string>
+    <string name="send_button_label">Send</string>
+
+</resources>

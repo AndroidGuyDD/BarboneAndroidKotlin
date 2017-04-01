@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.joba.barebone.example.ui.viewmodel.ExampleListViewModel"/>
+    </data>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="@dimen/cardview_default_elevation"
+        app:cardCornerRadius="10dp"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:fontFamily="serif-monospace"
+            android:lineSpacingExtra="-3dp"
+            android:padding="10dp"
+            android:text="@{viewModel.item}"
+            />
+
+    </android.support.v7.widget.CardView>
+
+</layout>
