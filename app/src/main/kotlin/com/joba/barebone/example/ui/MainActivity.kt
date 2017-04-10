@@ -1,16 +1,14 @@
 package com.joba.barebone.example.ui
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.widget.*
-import com.jakewharton.rxbinding.widget.RxTextView
+import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.LinearLayoutManager
 import com.joba.barebone.R
 import com.joba.barebone.example.contract.ExamplePresenterContract
 import com.joba.barebone.example.di.MainActivityComponent
-import com.joba.barebone.example.ui.adapter.ResultsAdapter
 import com.joba.barebone.example.presenter.ExamplePresenter
+import com.joba.barebone.example.ui.adapter.ResultsAdapter
 import kotlinx.android.synthetic.main.activity_main.*
-import rx.subscriptions.CompositeSubscription
 import javax.inject.Inject
 
 /**
