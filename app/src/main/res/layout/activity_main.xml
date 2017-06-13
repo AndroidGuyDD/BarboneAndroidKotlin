@@ -18,7 +18,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:hint="@string/input_hint"
+        android:hint="@string/adjust_app_token"
         android:inputType="textMultiLine"
         android:maxLines="2"
         android:textSize="14sp"

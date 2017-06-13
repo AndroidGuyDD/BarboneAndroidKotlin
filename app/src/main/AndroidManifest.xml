@@ -21,6 +21,14 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <meta-data android:name="test"
+                   android:value="@string/app_name"
+                   />
+
+        <meta-data android:name="test2"
+                   android:value="@string/test_value"
+            />
     </application>
 
 </manifest>

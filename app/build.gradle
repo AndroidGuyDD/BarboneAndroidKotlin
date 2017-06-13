@@ -7,6 +7,12 @@ apply plugin: "kotlin-allopen"
 allOpen {
     annotation("com.joba.barebone.app.annotations.Testable")
 }
+repositories {
+    jcenter()
+    maven {
+        url 'https://maven.google.com'
+    }
+}
 
 android {
     compileSdkVersion 25
@@ -18,11 +24,38 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        resValue "string", "test_value", "Test123"
     }
+
+    flavorDimensions "store"
+
+    productFlavors {
+        forAmazon {
+            dimension "store"
+            buildConfigField "String", "APP_STORE", "\"amazon\""
+        }
+
+        forGoogle {
+            dimension "store"
+            buildConfigField "String", "APP_STORE", "\"google\""
+        }
+    }
+
     buildTypes {
+
+        debug {
+            debuggable true
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        coverage.initWith(buildTypes.debug)
+        coverage {
+            testCoverageEnabled true
         }
     }
 
@@ -40,6 +73,31 @@ android {
 
     dataBinding {
         enabled = true
+    }
+
+    applicationVariants.all { variant ->
+        if (variant.name.contains("Google")) {
+            switch (variant.buildType.name) {
+                case ["debug", "ci", "coverage", "purchaseDebug"]:
+                    variant.resValue "string", "adjust_app_token", "9w96m2kpfdta"
+                    break
+                default:
+                    variant.resValue "string", "adjust_app_token", "9w96m2kpfdta"
+                    break;
+
+            }
+        }
+
+        if (variant.name.contains("Amazon")) {
+            switch (variant.buildType.name) {
+                case ["debug", "ci", "coverage", "purchaseDebug"]:
+                    variant.resValue "string", "adjust_app_token", "ktbmtoo8rda8"
+                    break
+                default:
+                    variant.resValue "string", "adjust_app_token", "ktbmtoo8rda8"
+                    break
+            }
+        }
     }
 }
 
