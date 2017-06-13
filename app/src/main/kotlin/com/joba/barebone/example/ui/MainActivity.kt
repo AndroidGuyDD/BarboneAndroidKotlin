@@ -3,6 +3,7 @@ package com.joba.barebone.example.ui
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
+import android.widget.Toast
 import com.joba.barebone.R
 import com.joba.barebone.example.contract.ExamplePresenterContract
 import com.joba.barebone.example.di.MainActivityComponent
@@ -41,6 +42,7 @@ class MainActivity : AppCompatActivity(), ExamplePresenterContract {
             presenter.doSomeStuff(editText.text.toString())
         }
     }
+
 
     override fun onResume() {
         super.onResume()
