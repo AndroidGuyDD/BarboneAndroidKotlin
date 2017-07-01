@@ -11,11 +11,19 @@ import com.joba.barebone.example.presenter.ExamplePresenter
 import com.joba.barebone.example.ui.adapter.ResultsAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
+import android.content.pm.PackageManager
+import android.content.pm.ApplicationInfo
+import android.util.Log
+
 
 /**
  * Example MainActivity
  */
 class MainActivity : AppCompatActivity(), ExamplePresenterContract {
+
+    companion object {
+        val TAG = MainActivity.javaClass.simpleName
+    }
 
     @Inject
     lateinit var presenter: ExamplePresenter
@@ -37,6 +45,18 @@ class MainActivity : AppCompatActivity(), ExamplePresenterContract {
             adapter = listAdapter
             addItemDecoration(ResultsAdapter.VerticalSpaceItemDecoration(resources.getDimensionPixelSize(R.dimen.list_vertical_spacing)))
         }
+
+        try {
+            val ai = packageManager.getApplicationInfo(packageName, PackageManager.GET_META_DATA)
+            val bundle = ai.metaData
+            val tag = bundle.getString("test")
+            Log.d(TAG, "meta data was: " + tag)
+        } catch (e: PackageManager.NameNotFoundException) {
+            Log.e(TAG, "Failed to load meta-data, NameNotFound: " + e.message)
+        } catch (e: NullPointerException) {
+            Log.e(TAG, "Failed to load meta-data, NullPointer: " + e.message)
+        }
+
 
         sendButton.setOnClickListener {
             presenter.doSomeStuff(editText.text.toString())

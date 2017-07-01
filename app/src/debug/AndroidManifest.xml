@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.joba.barebone">
+
+
+    <application>
+
+        <meta-data android:name="test"
+                   android:value="testLabelDebug"
+                   />
+
+        <meta-data android:name="test2"
+                   android:value="testlabel2Debug"
+            />
+    </application>
+
+</manifest>
